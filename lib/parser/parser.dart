@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:brainfucked/parser/operations.dart';
+import 'package:brainfucked/tokenizer/token.dart';
 import 'package:brainfucked/tokenizer/tokens.dart';
 
 class BrainfuckParser {
@@ -12,10 +13,13 @@ class BrainfuckParser {
     };
   }
 
-  List<Map<String, dynamic>> parse(Iterator<String> tokenIterator) {
+  List<Map<String, dynamic>> parse(Iterator<Token> tokenIterator) {
     List<Map<String, dynamic>> operations = List<Map<String, dynamic>>();
+    
     while (tokenIterator.moveNext()) {
-      switch(tokenIterator.current) {
+      Token token = tokenIterator.current;
+      
+      switch(token.type) {
         case Tokens.ADD:
           operations.add(_toOperation(Operations.ADD, 1));
           break;
