@@ -1,0 +1,8 @@
+name: brainfucked
+description: Brainfuck interpreter written in Dart
+version: 1.0.0
+homepage: https://github.com/sleeyax/brainfucked
+author: Sleeyax <yourd3veloper@gmail.com>
+
+environment:
+  sdk: '>=2.4.0 <3.0.0'
