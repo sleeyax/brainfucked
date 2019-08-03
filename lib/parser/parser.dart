@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:brainfucked/parser/operations.dart';
 import 'package:brainfucked/tokenizer/token.dart';
-import 'package:brainfucked/tokenizer/tokens.dart';
+import 'package:brainfucked/tokenizer/token_type.dart';
 
 class BrainfuckParser {
 
@@ -20,28 +20,28 @@ class BrainfuckParser {
       Token token = tokenIterator.current;
       
       switch(token.type) {
-        case Tokens.ADD:
+        case TokenTYpe.ADD:
           operations.add(_toOperation(Operations.ADD, 1));
           break;
-        case Tokens.SUB:
+        case TokenTYpe.SUB:
           operations.add(_toOperation(Operations.ADD, -1));
           break;
-        case Tokens.MVR:
+        case TokenTYpe.MVR:
           operations.add(_toOperation(Operations.MOVE, 1));
           break;
-         case Tokens.MVL:
+         case TokenTYpe.MVL:
           operations.add(_toOperation(Operations.MOVE, -1));
           break;
-        case Tokens.PRINT:
+        case TokenTYpe.PRINT:
           operations.add(_toOperation(Operations.OUT, 0));
           break;
-        case Tokens.STARTLOOP:
+        case TokenTYpe.STARTLOOP:
           operations.add(_toOperation(Operations.LOOP, parse(tokenIterator)));
           break;
-        case Tokens.ENDLOOP:
+        case TokenTYpe.ENDLOOP:
           return operations;
           break;
-        case Tokens.INP:
+        case TokenTYpe.INP:
           String input = stdin.readLineSync(encoding: Encoding.getByName('utf-8'));
           // TODO: find out how to get ASCII code from string/char
           operations.add(_toOperation(Operations.IN, input[0].trim()));

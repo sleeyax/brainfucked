@@ -1,5 +1,5 @@
 import 'package:brainfucked/tokenizer/token.dart';
-import 'package:brainfucked/tokenizer/tokens.dart';
+import 'package:brainfucked/tokenizer/token_type.dart';
 
 class BrainfuckTokenizer {
   
@@ -13,28 +13,28 @@ class BrainfuckTokenizer {
     for (var char in _code.split('')) {
       switch(char) {
         case '+':
-          tokens.add(Token(Tokens.ADD, '+'));
+          tokens.add(Token(TokenTYpe.ADD, '+'));
           break;
         case '-':
-          tokens.add(Token(Tokens.SUB, '-'));
+          tokens.add(Token(TokenTYpe.SUB, '-'));
           break;
         case '>':
-          tokens.add(Token(Tokens.MVR, '>'));
+          tokens.add(Token(TokenTYpe.MVR, '>'));
           break;
         case '<':
-          tokens.add(Token(Tokens.MVL, '<'));
+          tokens.add(Token(TokenTYpe.MVL, '<'));
           break;
         case '[':
-          tokens.add(Token(Tokens.STARTLOOP, '['));
+          tokens.add(Token(TokenTYpe.STARTLOOP, '['));
           break;
         case ']':
-          tokens.add(Token(Tokens.ENDLOOP, ']'));
+          tokens.add(Token(TokenTYpe.ENDLOOP, ']'));
           break;
         case '.':
-          tokens.add(Token(Tokens.PRINT, '.'));
+          tokens.add(Token(TokenTYpe.PRINT, '.'));
           break;
         case ',':
-          tokens.add(Token(Tokens.INP, ','));
+          tokens.add(Token(TokenTYpe.INP, ','));
           break;
       }
     }
