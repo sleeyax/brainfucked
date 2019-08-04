@@ -43,12 +43,10 @@ class BrainfuckParser {
           break;
         case TokenType.INP:
           String input = stdin.readLineSync(encoding: Encoding.getByName('utf-8'));
-          // TODO: find out how to get ASCII code from string/char
-          operations.add(_toOperation(Operations.IN, input[0].trim()));
+          operations.add(_toOperation(Operations.IN, input.trim().codeUnitAt(0)));
           break;
       }
     }
-
     return operations;
   }
 }

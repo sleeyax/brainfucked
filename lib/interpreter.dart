@@ -24,6 +24,9 @@ class BrainfuckInterpreter {
         case Operations.OUT:
           result += String.fromCharCode(_blocks[_index]);
           break;
+        case Operations.IN:
+          _blocks[_index] = value;
+          break;
       }
     }
 
