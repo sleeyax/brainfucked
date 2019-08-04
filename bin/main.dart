@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:brainfucked/interpreter.dart';
 import 'package:brainfucked/parser/parser.dart';
 import 'package:brainfucked/tokenizer/tokenizer.dart';
