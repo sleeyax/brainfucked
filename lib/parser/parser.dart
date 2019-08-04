@@ -20,28 +20,28 @@ class BrainfuckParser {
       Token token = tokenIterator.current;
       
       switch(token.type) {
-        case TokenTYpe.ADD:
+        case TokenType.ADD:
           operations.add(_toOperation(Operations.ADD, 1));
           break;
-        case TokenTYpe.SUB:
+        case TokenType.SUB:
           operations.add(_toOperation(Operations.ADD, -1));
           break;
-        case TokenTYpe.MVR:
+        case TokenType.MVR:
           operations.add(_toOperation(Operations.MOVE, 1));
           break;
-         case TokenTYpe.MVL:
+         case TokenType.MVL:
           operations.add(_toOperation(Operations.MOVE, -1));
           break;
-        case TokenTYpe.PRINT:
+        case TokenType.PRINT:
           operations.add(_toOperation(Operations.OUT, 0));
           break;
-        case TokenTYpe.STARTLOOP:
+        case TokenType.STARTLOOP:
           operations.add(_toOperation(Operations.LOOP, parse(tokenIterator)));
           break;
-        case TokenTYpe.ENDLOOP:
+        case TokenType.ENDLOOP:
           return operations;
           break;
-        case TokenTYpe.INP:
+        case TokenType.INP:
           String input = stdin.readLineSync(encoding: Encoding.getByName('utf-8'));
           // TODO: find out how to get ASCII code from string/char
           operations.add(_toOperation(Operations.IN, input[0].trim()));

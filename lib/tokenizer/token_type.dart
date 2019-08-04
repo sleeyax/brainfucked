@@ -1,4 +1,4 @@
-class TokenTYpe {
+class TokenType {
   static const MVL = "MOVE_LEFT";
   static const MVR = "MOVE_RIGHT";
   static const ADD = "ADD";
