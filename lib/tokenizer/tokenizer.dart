@@ -13,28 +13,28 @@ class BrainfuckTokenizer {
     for (var char in _code.split('')) {
       switch(char) {
         case '+':
-          tokens.add(Token(TokenType.ADD, '+'));
+          tokens.add(Token(TokenType.ADD, char));
           break;
         case '-':
-          tokens.add(Token(TokenType.SUB, '-'));
+          tokens.add(Token(TokenType.SUB, char));
           break;
         case '>':
-          tokens.add(Token(TokenType.MVR, '>'));
+          tokens.add(Token(TokenType.MVR, char));
           break;
         case '<':
-          tokens.add(Token(TokenType.MVL, '<'));
+          tokens.add(Token(TokenType.MVL, char));
           break;
         case '[':
-          tokens.add(Token(TokenType.STARTLOOP, '['));
+          tokens.add(Token(TokenType.STARTLOOP, char));
           break;
         case ']':
-          tokens.add(Token(TokenType.ENDLOOP, ']'));
+          tokens.add(Token(TokenType.ENDLOOP, char));
           break;
         case '.':
-          tokens.add(Token(TokenType.PRINT, '.'));
+          tokens.add(Token(TokenType.PRINT, char));
           break;
         case ',':
-          tokens.add(Token(TokenType.INP, ','));
+          tokens.add(Token(TokenType.INP, char));
           break;
       }
     }

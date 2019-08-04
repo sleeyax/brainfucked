@@ -9,13 +9,15 @@ class BrainfuckInterpreter {
     
     for (var operation in parsed) {
       final dynamic value = operation['value'];
+      final String op = operation['op'];
 
-      switch (operation['op']) {
+      switch (op) {
         case Operations.ADD:
           _blocks[_index] += value;
           break;
         case Operations.MOVE:
           _index += value;
+          if (_index < 0) throw new Exception("Failed at ${op}: block index can't be ${_index}!");
           while (_index >= _blocks.length) _blocks.add(0);
           break;
         case Operations.LOOP:
